@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://di6b47hs7k433"]
+
+[ext_resource type="PackedScene" uid="uid://bu60s5knwb2n1" path="res://scenes/hud.tscn" id="1_afixl"]
+[ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_wl18g"]
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_wl18g")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_afixl")]
+
+[node name="Fondo" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Exterior" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://blqy6simb1yg6"]
+
+[ext_resource type="Script" path="res://scripts/npcs/npc.gd" id="1_dpby6"]
+[ext_resource type="PackedScene" uid="uid://lmddb58fek1g" path="res://scenes/npcs/globe.tscn" id="2_3x7ja"]
+
+[node name="NPC" type="Sprite2D"]
+script = ExtResource("1_dpby6")
+globe_scene = ExtResource("2_3x7ja")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Nombre"
+
+[node name="ProgressBar" type="ProgressBar" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TimeLeft" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimeLeft" to="." method="_on_time_left_timeout"]

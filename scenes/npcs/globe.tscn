@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://lmddb58fek1g"]
+
+[ext_resource type="Script" path="res://scripts/npcs/globe.gd" id="1_sfmxy"]
+
+[node name="Globe" type="Sprite2D"]
+script = ExtResource("1_sfmxy")
+
+[node name="Icon" type="Sprite2D" parent="."]
+
+[connection signal="finish" from="." to="." method="_on_finish"]
