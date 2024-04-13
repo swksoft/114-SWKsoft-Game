@@ -27,11 +27,9 @@ func _ready() -> void:
 	reset_hitbox()
 	get_parent().call_deferred("add_child", polygon_hitbox)
 
-
 func reset_hitbox():
 	polygon_hitbox.polygon = polygon
 	polygon_hitbox.position = position
-
 
 func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if event is InputEventMouseButton:
