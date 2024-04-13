@@ -2,9 +2,10 @@ extends Sprite2D
 
 signal finish
 
+@export var icon : Texture2D = null
+
 func _ready():
-	# TODO: show sword (without timeout)
-	pass
+	show_sword(icon)
 	
 func show_sword(icon):
 	pass

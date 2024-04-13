@@ -14,10 +14,12 @@ var can_pound = true
 @onready var cooldown = $Cooldown
 
 func _ready():
-	Input.set_custom_mouse_cursor(hw_cursor, Input.CURSOR_ARROW)
 	software_cursor.texture = sf_cursor
 	software_cursor.position.x = -100
+	
 	animation_player.play("idle")
+	
+	Input.set_custom_mouse_cursor(hw_cursor, Input.CURSOR_ARROW)
 
 #func _input(event):
 	#if event is InputEventMouseButton:
@@ -47,7 +49,6 @@ func _process(delta):
 		animation_player.play("pound")
 
 func _on_timer_timeout():
-	print("ratas")
 	can_pound = true
 	time = 0
 	animation_player.play("idle")
