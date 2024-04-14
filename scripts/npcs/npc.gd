@@ -18,9 +18,9 @@ func _ready():
 	anim.play("come_in")
 	
 	var globe = globe_scene.instantiate()
-	globe.global_position = global_position - Vector2(-100,0)
-	globe.icon_name = "anger"
-
+	globe.global_position = position - Vector2(130,35)
+	globe.icon_name = "sword"
+	add_child(globe)
 
 func get_sword():
 	# TODO: Do math and show emotion according to the quality (very happy - sad)
@@ -28,13 +28,13 @@ func get_sword():
 
 func go_out():
 	var globe = globe_scene.instantiate()
-	globe.global_position = global_position - Vector2(-100,0)
+	globe.global_position = position - Vector2(130,35)
 	
-	globe.icon_name = "anger"
+	globe.icon_name = "angry"
 	
 	anim.play("come_out")
 	
-	#add_child(globe)
+	add_child(globe)
 
 func _process(delta):
 	time_bar.value = time_left.time_left

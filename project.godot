@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://fonts/PixeloidSans.ttf"
+
 [input]
 
 click={
