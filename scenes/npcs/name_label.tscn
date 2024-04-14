@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bngej0qlviycp"]
+
+[ext_resource type="Script" path="res://scripts/npcs/name_label.gd" id="1_wu4a4"]
+
+[node name="NameLabel" type="Label"]
+offset_right = 256.0
+offset_bottom = 23.0
+text = "Sinn N. Ombre"
+horizontal_alignment = 1
+script = ExtResource("1_wu4a4")
+
+[node name="ClassLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 55.0
+text = "Clase"
+vertical_alignment = 1
