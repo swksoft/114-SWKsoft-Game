@@ -398,7 +398,7 @@ _data = {
 }
 
 [node name="CustomCursor" type="Node2D"]
-scale = Vector2(2, 2)
+z_index = 5
 script = ExtResource("1_g5j7x")
 hw_cursor = ExtResource("2_kwnop")
 sf_cursor = ExtResource("3_dronh")

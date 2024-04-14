@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="114# SWKsoft Game"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/game_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -25,6 +25,7 @@ window/size/viewport_width=512
 window/size/viewport_height=384
 window/size/window_width_override=1024
 window/size/window_height_override=768
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
