@@ -9,9 +9,6 @@ extends Node2D
 
 @onready var characters = get_parent().get_node("Characters")
 
-func _ready():
-	pass
-
 func check_nobody():
 	# Devuelve 'true' si no hay nadie
 	var characters_children = characters.get_children()

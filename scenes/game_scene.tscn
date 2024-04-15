@@ -30,6 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="test" type="Sprite2D" parent="."]
+visible = false
 self_modulate = Color(1, 1, 1, 0.333333)
 texture = ExtResource("3_bnooo")
 centered = false
