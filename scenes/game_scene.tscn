@@ -1,17 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://di6b47hs7k433"]
+[gd_scene load_steps=7 format=3 uid="uid://di6b47hs7k433"]
 
 [ext_resource type="PackedScene" uid="uid://bu60s5knwb2n1" path="res://scenes/hud.tscn" id="1_afixl"]
 [ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_wl18g"]
+[ext_resource type="Script" path="res://scripts/blade/SpawnerBlade.gd" id="2_vdclb"]
 [ext_resource type="Texture2D" uid="uid://csj1ueg3ga2v3" path="res://assets/sprites/bg/bg.png" id="3_bnooo"]
-[ext_resource type="PackedScene" uid="uid://b6ue8f8guvjpr" path="res://scenes/spawner.tscn" id="3_k7gpg"]
+[ext_resource type="PackedScene" uid="uid://cgghbhpbu6phr" path="res://main.tscn" id="3_eht4g"]
+[ext_resource type="PackedScene" uid="uid://b6ue8f8guvjpr" path="res://scenes/spawner_npc.tscn" id="3_k7gpg"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_wl18g")
 
+[node name="SpawnPositionBlade" type="Marker2D" parent="."]
+position = Vector2(256, 256)
+
+[node name="SpawnerBlade" type="Node2D" parent="."]
+script = ExtResource("2_vdclb")
+blade_scene = ExtResource("3_eht4g")
+
+[node name="SpawnerNPC" parent="." instance=ExtResource("3_k7gpg")]
+
 [node name="Characters" type="Node2D" parent="."]
 position = Vector2(256, 96)
-
-[node name="Spawner" parent="." instance=ExtResource("3_k7gpg")]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_afixl")]
 

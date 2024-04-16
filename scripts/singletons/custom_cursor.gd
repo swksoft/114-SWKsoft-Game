@@ -5,7 +5,8 @@ extends Node2D
 @export var hw_cursor: Texture2D = null
 @export var sf_cursor: Texture2D = null
 
-var time: float = 0
+var time: float = 0.0
+var final_time: float = 0.0
 var can_pound = true
 
 @onready var software_cursor = $SoftwareCursor
@@ -37,6 +38,7 @@ func _process(delta):
 	pound_area.global_position = software_cursor.get_global_mouse_position()
 	
 	if Input.is_action_pressed("click") and can_pound:
+		print(time)
 		time += delta
 		#print(time)
 		animation_player.play("startup")
@@ -44,12 +46,20 @@ func _process(delta):
 			animation_player.play("pound")
 			can_pound = false
 	elif Input.is_action_just_released("click") and can_pound:
+		final_time = time * 100
 		can_pound = false
 		time = 0
 		animation_player.play("pound")
 
+func pound():
+	print("FUERZ DE: ", final_time)
+
 func _on_timer_timeout():
 	can_pound = true
-	time = 0
 	animation_player.play("idle")
-	
+
+func _on_pound_area_area_entered(area):
+	pound()
+
+func _on_pound_area_body_entered(body):
+	pound()

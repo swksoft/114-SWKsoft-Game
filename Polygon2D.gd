@@ -6,7 +6,6 @@ var points_amount_in_each_side: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	points_amount_in_each_side = polygon[1].x / points_between
 	var x_points : Array = []
 	var y_points : Array = []
@@ -15,6 +14,8 @@ func _ready() -> void:
 		y_points.push_front(Vector2(i, polygon[4].y))
 		
 	##sindrome de down
+	var vertices = get_polygon()
+	
 	x_points.push_front(polygon[0])
 	x_points.push_back(polygon[1])
 	x_points.push_back(polygon[2])
