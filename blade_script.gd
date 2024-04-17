@@ -4,7 +4,8 @@ extends Polygon2D
 @export var points_between: int = 64
 var points_amount_in_each_side: int
 
-# Called when the node enters the scene tree for the first time.
+# FIXME: $CollisionPolygon2D se puede borrar
+
 func _ready() -> void:
 	points_amount_in_each_side = polygon[1].x / points_between
 	var x_points : Array = []
@@ -25,7 +26,9 @@ func _ready() -> void:
 	##sindrome de down
 	polygon = x_points
 	polygon_hitbox = CollisionPolygon2D.new()
+	
 	reset_hitbox()
+	
 	get_parent().call_deferred("add_child", polygon_hitbox)
 
 func reset_hitbox():
