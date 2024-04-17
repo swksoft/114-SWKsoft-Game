@@ -56,9 +56,9 @@ func _on_area_2d_area_entered(area: Node2D):
 			closest_point = collision_shape.polygon[i]
 			closest_point_index = i
 			
-	if closest_point_index == polygon.size()/2: return
-		#if local_mouse_pos.y > polygon[closest_point_index].y: polygon[closest_point_index].y -= 5
-		#else: polygon[closest_point_index].y += 5
+	if closest_point_index == polygon.size()/2:
+		if local_mouse_pos.y > polygon[closest_point_index].y: polygon[closest_point_index].y -= force
+		else: polygon[closest_point_index].y += force
 	elif closest_point_index < polygon.size()/2:
 		polygon[closest_point_index].y += force
 		polygon[collision_shape.polygon.size()-closest_point_index-1].y += force
