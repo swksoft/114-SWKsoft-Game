@@ -35,22 +35,31 @@ func reset_hitbox():
 func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				var collision_shape = polygon_hitbox
-				var local_mouse_pos = polygon_hitbox.to_local(event.position)
-				var closest_point : Vector2
-				var closest_point_index : int
-				var closest_distance : float
-				for i in range(collision_shape.polygon.size()):
-					var distance = local_mouse_pos.distance_squared_to(collision_shape.polygon[i])
-					if distance < closest_distance || i == 0:
-						closest_distance = distance
-						closest_point = collision_shape.polygon[i]
-						closest_point_index = i
-						
-				if closest_point_index < polygon.size()/2-1:						
-					polygon[closest_point_index].y += 20
-					polygon[collision_shape.polygon.size()-closest_point_index-1].y += 20
-				else:
-					polygon[closest_point_index].y -= 20
-					polygon[collision_shape.polygon.size()-closest_point_index-1].y -= 20
-				reset_hitbox()
+				pass
+
+
+
+func _on_area_2d_area_entered(area: Node2D):
+	var force = area.get_parent().force
+	var collision_shape = polygon_hitbox
+	var local_mouse_pos = polygon_hitbox.to_local(get_global_mouse_position())
+	var closest_point : Vector2
+	var closest_point_index : int
+	var closest_distance : float
+	for i in range(collision_shape.polygon.size()):
+		var distance = local_mouse_pos.distance_squared_to(collision_shape.polygon[i])
+		if distance < closest_distance || i == 0:
+			closest_distance = distance
+			closest_point = collision_shape.polygon[i]
+			closest_point_index = i
+			
+	if closest_point_index == polygon.size()/2: return
+		#if local_mouse_pos.y > polygon[closest_point_index].y: polygon[closest_point_index].y -= 5
+		#else: polygon[closest_point_index].y += 5
+	elif closest_point_index < polygon.size()/2:
+		polygon[closest_point_index].y += force
+		polygon[collision_shape.polygon.size()-closest_point_index-1].y += force
+	else:
+		polygon[closest_point_index].y -= force
+		polygon[collision_shape.polygon.size()-closest_point_index-1].y -= force
+	reset_hitbox()

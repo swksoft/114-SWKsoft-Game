@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_wl18g"]
 [ext_resource type="Script" path="res://scripts/blade/SpawnerBlade.gd" id="2_vdclb"]
 [ext_resource type="Texture2D" uid="uid://csj1ueg3ga2v3" path="res://assets/sprites/bg/bg.png" id="3_bnooo"]
-[ext_resource type="PackedScene" uid="uid://cgghbhpbu6phr" path="res://main.tscn" id="3_eht4g"]
-[ext_resource type="PackedScene" uid="uid://b6ue8f8guvjpr" path="res://scenes/spawner_npc.tscn" id="3_k7gpg"]
+[ext_resource type="PackedScene" uid="uid://cgghbhpbu6phr" path="res://bladee.tscn" id="3_eht4g"]
+[ext_resource type="PackedScene" uid="uid://1h4nlm6vs37i" path="res://scenes/spawner_npc.tscn" id="3_k7gpg"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_wl18g")

@@ -1,4 +1,4 @@
-extends Node2D
+class_name Cursor extends Node2D
 
 # TODO: que al mantener presionado click no se pueda ejecutar el martillazo de nuevo
 
@@ -8,6 +8,7 @@ extends Node2D
 var time: float = 0.0
 var final_time: float = 0.0
 var can_pound = true
+var force : float
 
 @onready var software_cursor = $SoftwareCursor
 @onready var animation_player = $AnimationPlayer
@@ -38,13 +39,14 @@ func _process(delta):
 	pound_area.global_position = software_cursor.get_global_mouse_position()
 	
 	if Input.is_action_pressed("click") and can_pound:
-		print(time)
+		#print(time)
 		time += delta
 		#print(time)
 		animation_player.play("startup")
-		if time > 1.9:
+		if time >= 2:
 			animation_player.play("pound")
 			can_pound = false
+			time = 0
 	elif Input.is_action_just_released("click") and can_pound:
 		final_time = time * 100
 		can_pound = false
@@ -52,7 +54,8 @@ func _process(delta):
 		animation_player.play("pound")
 
 func pound():
-	print("FUERZ DE: ", final_time)
+	force = final_time
+	pass
 
 func _on_timer_timeout():
 	can_pound = true
