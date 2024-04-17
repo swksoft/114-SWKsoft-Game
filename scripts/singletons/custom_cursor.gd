@@ -59,7 +59,9 @@ func _on_timer_timeout():
 	animation_player.play("idle")
 
 func _on_pound_area_area_entered(area):
+	print_debug("a")
 	pound()
 
 func _on_pound_area_body_entered(body):
+	print_debug("a")
 	pound()
