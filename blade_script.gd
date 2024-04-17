@@ -4,8 +4,6 @@ extends Polygon2D
 @export var points_between: int = 64
 var points_amount_in_each_side: int
 
-# FIXME: $CollisionPolygon2D se puede borrar
-
 func _ready() -> void:
 	points_amount_in_each_side = polygon[1].x / points_between
 	var x_points : Array = []
@@ -40,9 +38,8 @@ func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 				pass
 
-
-
 func _on_area_2d_area_entered(area: Node2D):
+	print("a")
 	var force = area.get_parent().force
 	var collision_shape = polygon_hitbox
 	var local_mouse_pos = polygon_hitbox.to_local(get_global_mouse_position())

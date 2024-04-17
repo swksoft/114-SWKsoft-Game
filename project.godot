@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 CustomCursor="*res://scenes/singletons/custom_cursor.tscn"
+GLOBAL="*res://global.gd"
 
 [display]
 
