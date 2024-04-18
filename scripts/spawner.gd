@@ -21,7 +21,7 @@ func spawn():
 	var npc = npc_scene.instantiate()
 	get_parent().get_node("Characters").add_child(npc)
 
-func _process(delta):
+func _process(_delta):
 	if !can_play:
 		return
 		

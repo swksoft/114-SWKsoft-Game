@@ -55,16 +55,16 @@ func _process(delta):
 
 func pound():
 	force = final_time
-	pass
-
+	return force
+	
 func _on_timer_timeout():
 	can_pound = true
 	animation_player.play("idle")
 
 func _on_pound_area_area_entered(area):
-	print_debug("a")
-	pound()
-
+	if area.has_method("deform"):
+		area.deform(pound())
+		
 func _on_pound_area_body_entered(body):
 	print_debug("a")
 	pound()

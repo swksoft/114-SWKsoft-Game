@@ -8,4 +8,6 @@ script = ExtResource("1_tkhfh")
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-48, -32, 64, -32, 109, 0, 64, 32, -48, 32)
 
-[node name="PolygonHitbox" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[connection signal="area_entered" from="." to="Polygon2D" method="_on_area_2d_area_entered"]

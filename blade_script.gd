@@ -1,28 +1,31 @@
-extends Polygon2D
+extends Area2D
 
 @export var polygon_hitbox : CollisionPolygon2D
 @export var points_between: int = 64
 var points_amount_in_each_side: int
 
+@onready var polygon_2d = $Polygon2D
+@onready var polygon_hbox = $PolygonHitbox
+
 func _ready() -> void:
-	points_amount_in_each_side = polygon[1].x / points_between
+	points_amount_in_each_side = polygon_2d.polygon[1].x / points_between
 	var x_points : Array = []
 	var y_points : Array = []
-	for i in range(points_between, polygon[1].x, points_between):
-		x_points.push_back(Vector2(i, polygon[1].y))
-		y_points.push_front(Vector2(i, polygon[4].y))
+	for i in range(points_between, polygon_2d.polygon[1].x, points_between):
+		x_points.push_back(Vector2(i, polygon_2d.polygon[1].y))
+		y_points.push_front(Vector2(i, polygon_2d.polygon[4].y))
 		
 	##sindrome de down
-	var vertices = get_polygon()
+	var vertices = polygon_2d.get_polygon()
 	
-	x_points.push_front(polygon[0])
-	x_points.push_back(polygon[1])
-	x_points.push_back(polygon[2])
-	x_points.push_back(polygon[3])
-	y_points.push_back(polygon[4])
+	x_points.push_front(polygon_2d.polygon[0])
+	x_points.push_back(polygon_2d.polygon[1])
+	x_points.push_back(polygon_2d.polygon[2])
+	x_points.push_back(polygon_2d.polygon[3])
+	y_points.push_back(polygon_2d.polygon[4])
 	x_points.append_array(y_points)
 	##sindrome de down
-	polygon = x_points
+	polygon_2d.polygon = x_points
 	polygon_hitbox = CollisionPolygon2D.new()
 	
 	reset_hitbox()
@@ -30,17 +33,13 @@ func _ready() -> void:
 	get_parent().call_deferred("add_child", polygon_hitbox)
 
 func reset_hitbox():
-	polygon_hitbox.polygon = polygon
-	polygon_hitbox.position = position
+	polygon_hbox.set_deferred("polygon", polygon_2d.polygon)
+	polygon_hbox.set_deferred("polygon", polygon_2d.position)
+	#polygon_hbox.polygon = polygon_2d.polygon
+	#polygon_hbox.position = polygon_2d.position
 
-func _on_static_body_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-		if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				pass
-
-func _on_area_2d_area_entered(area: Node2D):
-	print("a")
-	var force = area.get_parent().force
+func deform(force):
+	#var force = area.get_parent().force
 	var collision_shape = polygon_hitbox
 	var local_mouse_pos = polygon_hitbox.to_local(get_global_mouse_position())
 	var closest_point : Vector2
@@ -53,13 +52,13 @@ func _on_area_2d_area_entered(area: Node2D):
 			closest_point = collision_shape.polygon[i]
 			closest_point_index = i
 			
-	if closest_point_index == polygon.size()/2:
-		if local_mouse_pos.y > polygon[closest_point_index].y: polygon[closest_point_index].y -= force
-		else: polygon[closest_point_index].y += force
-	elif closest_point_index < polygon.size()/2:
-		polygon[closest_point_index].y += force
-		polygon[collision_shape.polygon.size()-closest_point_index-1].y += force
+	if closest_point_index == polygon_2d.polygon.size()/2:
+		if local_mouse_pos.y > polygon_2d.polygon[closest_point_index].y: polygon_2d.polygon[closest_point_index].y -= force
+		else: polygon_2d.polygon[closest_point_index].y += force
+	elif closest_point_index < polygon_2d.polygon.size()/2:
+		polygon_2d.polygon[closest_point_index].y += force
+		polygon_2d.polygon[collision_shape.polygon.size()-closest_point_index-1].y += force
 	else:
-		polygon[closest_point_index].y -= force
-		polygon[collision_shape.polygon.size()-closest_point_index-1].y -= force
+		polygon_2d.polygon[closest_point_index].y -= force
+		polygon_2d.polygon[collision_shape.polygon.size()-closest_point_index-1].y -= force
 	reset_hitbox()

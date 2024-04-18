@@ -4,6 +4,8 @@ class_name NPC extends Sprite2D
 @export var difficulty: int = 0
 @export_range(0,1) var sex: int = 0
 
+# TODO: 'globe' desaparece abruptamente y queda feo ay
+
 @onready var time_bar = $GridContainer/TimeBar
 @onready var name_label = $GridContainer/NameLabel
 @onready var time_left = $TimeLeft
@@ -11,7 +13,6 @@ class_name NPC extends Sprite2D
 
 func _ready():
 	# TODO: Prepara espada random
-	# TODO: Determinar sex
 	# TODO: Determinar dificultad
 	var max_time = time_left.wait_time
 	time_bar.max_value = max_time
@@ -28,6 +29,8 @@ func get_sword():
 	pass
 
 func go_out():
+	GLOBAL.points -= 100 # TODO: Bajar una cantidad considerable de puntos, 100 es ejemplo
+	
 	var globe = globe_scene.instantiate()
 	
 	globe.global_position = position - Vector2(130,35)
@@ -37,7 +40,7 @@ func go_out():
 	
 	add_child(globe)
 
-func _process(delta):
+func _process(_delta):
 	time_bar.value = time_left.time_left
 
 func _on_time_left_timeout():
@@ -49,8 +52,8 @@ func _on_animation_player_animation_finished(anim_name):
 	elif anim_name == "come_out":
 		queue_free()
 
-
 func _on_name_label_sex_npc(num):
+	# TODO: cambiar grupo de sprites (hombre y mujer)
 	if num == 0:
 		print("soy hombre")
 	elif num == 1:
