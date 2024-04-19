@@ -5,7 +5,7 @@ extends Area2D
 var points_amount_in_each_side: int
 
 @onready var polygon_2d = $Polygon2D
-@onready var polygon_hbox = $PolygonHitbox
+var polygon_hbox
 
 func _ready() -> void:
 	points_amount_in_each_side = polygon_2d.polygon[1].x / points_between
@@ -27,10 +27,10 @@ func _ready() -> void:
 	##sindrome de down
 	polygon_2d.polygon = x_points
 	polygon_hitbox = CollisionPolygon2D.new()
+	polygon_hbox = polygon_hitbox
 	
+	add_child(polygon_hbox)
 	reset_hitbox()
-	
-	get_parent().call_deferred("add_child", polygon_hitbox)
 
 func reset_hitbox():
 	polygon_hbox.set_deferred("polygon", polygon_2d.polygon)
@@ -41,7 +41,7 @@ func reset_hitbox():
 func deform(force):
 	#var force = area.get_parent().force
 	var collision_shape = polygon_hitbox
-	var local_mouse_pos = polygon_hitbox.to_local(get_global_mouse_position())
+	var local_mouse_pos = collision_shape.to_local(get_tree().get_first_node_in_group("cursor").get_cursor_position())
 	var closest_point : Vector2
 	var closest_point_index : int
 	var closest_distance : float
