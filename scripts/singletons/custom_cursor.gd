@@ -15,6 +15,12 @@ var force : float
 @onready var pound_area = $PoundArea
 @onready var cooldown = $Cooldown
 
+enum CURSOR{
+	HAMMER,
+	DEFAULT
+}
+var current
+
 func _ready():
 	software_cursor.texture = sf_cursor
 	software_cursor.position.x = -100
@@ -55,6 +61,7 @@ func _process(delta):
 
 func pound():
 	force = final_time
+	print("fuerza total: ", force)
 	return force
 	
 func _on_timer_timeout():
@@ -62,9 +69,8 @@ func _on_timer_timeout():
 	animation_player.play("idle")
 
 func _on_pound_area_area_entered(area):
+	print_debug("hit something: ", area)
 	if area.has_method("deform"):
 		area.deform(pound())
-		
-func _on_pound_area_body_entered(body):
-	print_debug("a")
-	pound()
+	elif area.has_method("crack"):
+		area.crack(pound())

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://sp6obktp3qo"]
+
+[ext_resource type="Script" path="res://scripts/singletons/select_weapon.gd" id="1_s5pb1"]
+
+[node name="SelectWeapon" type="Area2D"]
+script = ExtResource("1_s5pb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

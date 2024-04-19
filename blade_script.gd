@@ -34,7 +34,7 @@ func _ready() -> void:
 
 func reset_hitbox():
 	polygon_hbox.set_deferred("polygon", polygon_2d.polygon)
-	polygon_hbox.set_deferred("polygon", polygon_2d.position)
+	polygon_hbox.set_deferred("position", polygon_2d.position)
 	#polygon_hbox.polygon = polygon_2d.polygon
 	#polygon_hbox.position = polygon_2d.position
 

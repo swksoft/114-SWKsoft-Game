@@ -436,5 +436,4 @@ libraries = {
 wait_time = 0.75
 
 [connection signal="area_entered" from="PoundArea" to="." method="_on_pound_area_area_entered"]
-[connection signal="body_entered" from="PoundArea" to="." method="_on_pound_area_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_timer_timeout"]

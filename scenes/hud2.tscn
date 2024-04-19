@@ -76,3 +76,6 @@ text = "$1526"
 layout_mode = 2
 size_flags_horizontal = 8
 text = "00:00:00"
+
+[connection signal="gain_blade" from="." to="." method="_on_gain_blade"]
+[connection signal="lose_blade" from="." to="." method="_on_lose_blade"]
