@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dejk0epwyxhg6"]
+[gd_scene load_steps=12 format=3 uid="uid://dejk0epwyxhg6"]
 
 [ext_resource type="Script" path="res://scripts/singletons/custom_cursor.gd" id="1_g5j7x"]
 [ext_resource type="Texture2D" uid="uid://v0giey3mxgfm" path="res://assets/sprites/cursor/hwcursor.png" id="2_kwnop"]
 [ext_resource type="Texture2D" uid="uid://ktq42oo5dwa4" path="res://assets/sprites/cursor/hammer.png" id="3_dronh"]
+[ext_resource type="PackedScene" uid="uid://sp6obktp3qo" path="res://scenes/singletons/select_weapon.tscn" id="4_yvhgy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ya0y"]
 
@@ -405,6 +406,7 @@ sf_cursor = ExtResource("3_dronh")
 
 [node name="SoftwareCursor" type="Sprite2D" parent="."]
 self_modulate = Color(0.968627, 0, 0.215686, 1)
+z_index = 1
 rotation = -0.567232
 skew = 0.811578
 texture = ExtResource("3_dronh")
@@ -434,6 +436,8 @@ libraries = {
 
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.75
+
+[node name="SelectWeapon" parent="." instance=ExtResource("4_yvhgy")]
 
 [connection signal="area_entered" from="PoundArea" to="." method="_on_pound_area_area_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_timer_timeout"]

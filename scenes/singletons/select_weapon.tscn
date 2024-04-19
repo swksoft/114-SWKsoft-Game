@@ -1,8 +1,77 @@
-[gd_scene load_steps=2 format=3 uid="uid://sp6obktp3qo"]
+[gd_scene load_steps=7 format=3 uid="uid://sp6obktp3qo"]
 
 [ext_resource type="Script" path="res://scripts/singletons/select_weapon.gd" id="1_s5pb1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhs61"]
+size = Vector2(192, 32)
+
+[sub_resource type="Animation" id="Animation_0esny"]
+resource_name = "go_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureHammer:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 81.38), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_flw8w"]
+resource_name = "go_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureHammer:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 80.25)]
+}
+
+[sub_resource type="Animation" id="Animation_ymfat"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureHammer:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6dngu"]
+_data = {
+"RESET": SubResource("Animation_ymfat"),
+"go_down": SubResource("Animation_flw8w"),
+"go_up": SubResource("Animation_0esny")
+}
 
 [node name="SelectWeapon" type="Area2D"]
 script = ExtResource("1_s5pb1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(256, 368)
+shape = SubResource("RectangleShape2D_dhs61")
+
+[node name="TextureHammer" type="Sprite2D" parent="."]
+position = Vector2(256, 344)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6dngu")
+}
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
