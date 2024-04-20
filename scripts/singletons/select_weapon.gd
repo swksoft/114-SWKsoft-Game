@@ -8,7 +8,6 @@ var hammer : Resource = preload("res://assets/sprites/icon/hammer2.png")
 
 func _ready():
 	change_weapon()
-	
 
 func change_weapon():
 	if CustomCursor.current == 0:
@@ -27,6 +26,6 @@ func _on_mouse_exited():
 	#texture_hammer.visible = false
 
 func _on_input_event(viewport, event, shape_idx):
-	print("pij")
 	if (event is InputEventMouseButton && event.pressed):
+		print("pij")
 		change_weapon()

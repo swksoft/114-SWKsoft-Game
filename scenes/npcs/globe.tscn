@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://lmddb58fek1g"]
+[gd_scene load_steps=4 format=3 uid="uid://lmddb58fek1g"]
 
 [ext_resource type="Texture2D" uid="uid://ccy1sq6rcd2nf" path="res://assets/sprites/icon/textglobe.png" id="1_r7fpc"]
 [ext_resource type="Script" path="res://scripts/npcs/globe.gd" id="1_sfmxy"]
+[ext_resource type="PackedScene" uid="uid://cgghbhpbu6phr" path="res://bladee.tscn" id="3_enx0m"]
 
 [node name="Globe" type="Sprite2D"]
 texture = ExtResource("1_r7fpc")
 script = ExtResource("1_sfmxy")
+blade_scene = ExtResource("3_enx0m")
 metadata/_edit_vertical_guides_ = [64.0, 448.0]
 metadata/_edit_horizontal_guides_ = [16.0, 176.0, 208.0, 352.0]
 

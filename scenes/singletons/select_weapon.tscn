@@ -58,6 +58,7 @@ _data = {
 }
 
 [node name="SelectWeapon" type="Area2D"]
+collision_mask = 0
 script = ExtResource("1_s5pb1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -4,7 +4,7 @@ extends CanvasLayer
 # TODO: SI SE TIENE EL MARTILLO EN MANO ENTONCES NO SE PUEDE ACCEDER A LOS BOTONES DEL MENU
 
 signal done_blade
-signal lose_blade
+signal redo_blade
 signal gain_blade
 
 var time: float = 0.0
@@ -26,7 +26,7 @@ func _process(delta):
 	if CustomCursor.current == 0: get_tree().call_group("button", "set_disabled", false)
 	elif CustomCursor.current == 1: get_tree().call_group("button", "set_disabled", true)
 
-func _on_lose_blade():
+func lose_blade():
 	GLOBAL.blades_left -= 1
 	blade_label.text = "x" + str(GLOBAL.blades_left)
 	if GLOBAL.blades_left <= 0:
@@ -38,7 +38,8 @@ func _on_gain_blade():
 		GLOBAL.blades_left = 5 # NO SE PUEDE TENER MAS DE 5 ESPADAS
 
 func _on_redo_button_pressed():
-	emit_signal("lose_blade")
+	lose_blade()
+	emit_signal("redo_blade")
 
 func _on_done_button_pressed():
 	emit_signal("done_blade")

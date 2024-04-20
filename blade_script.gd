@@ -2,12 +2,16 @@ extends Area2D
 
 @export var polygon_hitbox : CollisionPolygon2D
 @export var points_between: int = 64
+
 var points_amount_in_each_side: int
+var polygon_hbox
+var ready_blade : bool = false
 
 @onready var polygon_2d = $Polygon2D
-var polygon_hbox
 
 func _ready() -> void:
+	randomize()
+	
 	points_amount_in_each_side = polygon_2d.polygon[1].x / points_between
 	var x_points : Array = []
 	var y_points : Array = []
@@ -28,6 +32,16 @@ func _ready() -> void:
 	polygon_2d.polygon = x_points
 	polygon_hitbox = CollisionPolygon2D.new()
 	polygon_hbox = polygon_hitbox
+	
+	# RANDOM TEXTURE
+	var noise = FastNoiseLite.new()
+	noise.seed = randi()
+	
+	if !ready_blade:
+		polygon_2d.texture.noise = noise
+		polygon_2d.self_modulate = "d76221"
+	else:
+		pass
 	
 	add_child(polygon_hbox)
 	reset_hitbox()

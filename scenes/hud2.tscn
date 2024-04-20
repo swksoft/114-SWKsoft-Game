@@ -86,6 +86,5 @@ size_flags_horizontal = 8
 text = "$1526"
 
 [connection signal="gain_blade" from="." to="." method="_on_gain_blade"]
-[connection signal="lose_blade" from="." to="." method="_on_lose_blade"]
 [connection signal="pressed" from="PanelHUD/RedoButton" to="." method="_on_redo_button_pressed"]
 [connection signal="pressed" from="PanelHUD/DoneButton" to="." method="_on_done_button_pressed"]

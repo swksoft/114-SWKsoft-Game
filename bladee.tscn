@@ -1,10 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgghbhpbu6phr"]
+[gd_scene load_steps=4 format=3 uid="uid://cgghbhpbu6phr"]
 
 [ext_resource type="Script" path="res://blade_script.gd" id="1_tkhfh"]
 
-[node name="Blade" type="Area2D" node_paths=PackedStringArray("polygon_hitbox")]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uljcm"]
+noise_type = 0
+frequency = 0.0007
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cvbx6"]
+resource_local_to_scene = true
+noise = SubResource("FastNoiseLite_uljcm")
+
+[node name="Blade" type="Area2D"]
 script = ExtResource("1_tkhfh")
-polygon_hitbox = NodePath("")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+modulate = Color(0.772318, 0.733166, 1, 1)
+texture = SubResource("NoiseTexture2D_cvbx6")
+texture_offset = Vector2(32, 32)
+invert_border = 2.0
 polygon = PackedVector2Array(-48, -32, 64, -32, 109, 0, 64, 32, -48, 32)

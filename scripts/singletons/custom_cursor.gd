@@ -1,6 +1,7 @@
 class_name Cursor extends Node2D
 
-# TODO: que al mantener presionado click no se pueda ejecutar el martillazo de nuevo
+# TODO: (G) que al mantener presionado click no se pueda ejecutar el martillazo de nuevo
+# TODO: (G) Pq carajos el select weapon funciona en su proopia escena pero no en las demas? CUCK?
 
 @export var hw_cursor: Texture2D = null
 @export var sf_cursor: Texture2D = null
