@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://ddprvo1of3b6e"]
+
+[ext_resource type="Script" path="res://scripts/cracks.gd" id="1_0owfv"]
+[ext_resource type="Texture2D" uid="uid://qub2bvkx3oyp" path="res://assets/sprites/bg/patterns_glass.png" id="1_gar71"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51jc0"]
+atlas = ExtResource("1_gar71")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ob0y"]
+atlas = ExtResource("1_gar71")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce0ym"]
+atlas = ExtResource("1_gar71")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hxdi"]
+atlas = ExtResource("1_gar71")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hok41"]
+atlas = ExtResource("1_gar71")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oahku"]
+atlas = ExtResource("1_gar71")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm81e"]
+atlas = ExtResource("1_gar71")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lrh5"]
+atlas = ExtResource("1_gar71")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_al8po"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gar71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51jc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ob0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce0ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hxdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hok41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oahku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm81e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lrh5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="Cracks" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_al8po")
+frame = 8
+script = ExtResource("1_0owfv")

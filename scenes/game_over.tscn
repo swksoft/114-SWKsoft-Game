@@ -1,6 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqd0ocpk64cpx"]
+[gd_scene load_steps=11 format=3 uid="uid://bqd0ocpk64cpx"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_4fvag"]
+[ext_resource type="PackedScene" uid="uid://ddprvo1of3b6e" path="res://scenes/cracks.tscn" id="2_pe1pu"]
+[ext_resource type="Texture2D" uid="uid://bk3d34o484883" path="res://assets/sprites/bg/cracks_screen1.png" id="3_fpyfk"]
+[ext_resource type="Texture2D" uid="uid://c7ne3vi7no7go" path="res://assets/sprites/bg/cracks_screen2.png" id="4_6yf0s"]
+[ext_resource type="Texture2D" uid="uid://diyaswbgbjjij" path="res://assets/sprites/bg/cracks_screen3.png" id="5_7ae4e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m84xu"]
 size = Vector2(512, 384)
@@ -41,12 +45,30 @@ _data = {
 "appear": SubResource("Animation_rin4v")
 }
 
-[node name="GameOver" type="Area2D"]
-script = ExtResource("1_4fvag")
+[sub_resource type="SpriteFrames" id="SpriteFrames_v2dan"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fpyfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6yf0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7ae4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
 
-[node name="HitCollision" type="CollisionShape2D" parent="."]
-position = Vector2(256, 192)
-shape = SubResource("RectangleShape2D_m84xu")
+[node name="GameOver" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_4fvag")
+crack_scene = ExtResource("2_pe1pu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -72,19 +94,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -47.5
-offset_top = -20.0
-offset_right = 47.5
-offset_bottom = 20.0
+offset_left = -176.0
+offset_top = -64.0
+offset_right = 177.0
+offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/GridContainer"]
+[node name="BtwLabel" type="Label" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "GAME OVER"
+text = "You failed at maintaining your bussiness,
+also you're dead.
+And there's nothing you can do about it.
+GAME OVER
+
+
+
+
+"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="CanvasLayer/GridContainer"]
 layout_mode = 2
@@ -100,6 +128,15 @@ text = "Money Record: $301481"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label" type="Label" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+text = "..."
+horizontal_alignment = 1
+
+[node name="HitCollision" type="CollisionShape2D" parent="."]
+position = Vector2(256, 192)
+shape = SubResource("RectangleShape2D_m84xu")
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
@@ -108,5 +145,9 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_o7ctj")
 }
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v2dan")
+centered = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

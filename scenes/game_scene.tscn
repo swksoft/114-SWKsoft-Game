@@ -20,27 +20,32 @@ offset_bottom = 384.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_blmwk")
-
-[node name="Fondo" type="TextureRect" parent="."]
-offset_right = 512.0
-offset_bottom = 384.0
-texture = ExtResource("8_ngsbw")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 80.0
-offset_top = 240.0
-offset_right = 422.0
-offset_bottom = 356.0
-texture = ExtResource("9_dqi4x")
+metadata/_edit_lock_ = true
 
 [node name="SpawnPositionBlade" type="Marker2D" parent="."]
-position = Vector2(256, 256)
+position = Vector2(235, 300)
 
 [node name="SpawnerBlade" parent="." instance=ExtResource("5_xa72v")]
 
 [node name="SpawnerNPC" parent="." instance=ExtResource("3_k7gpg")]
 
 [node name="Characters" type="Node2D" parent="."]
-position = Vector2(256, 96)
+position = Vector2(256, 97)
+
+[node name="Fondo" type="TextureRect" parent="."]
+offset_right = 512.0
+offset_bottom = 384.0
+texture = ExtResource("8_ngsbw")
+metadata/_edit_lock_ = true
+
+[node name="Yunque" type="TextureRect" parent="."]
+offset_left = 80.0
+offset_top = 240.0
+offset_right = 422.0
+offset_bottom = 356.0
+texture = ExtResource("9_dqi4x")
+metadata/_edit_lock_ = true
 
 [node name="HUD2" parent="." instance=ExtResource("5_wid4p")]
+
+[connection signal="redo_blade" from="HUD2" to="SpawnerBlade" method="_on_hud_2_redo_blade"]
