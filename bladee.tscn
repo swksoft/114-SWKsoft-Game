@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" path="res://blade_script.gd" id="1_tkhfh"]
 
-[node name="Blade" type="Area2D"]
+[node name="Blade" type="Area2D" node_paths=PackedStringArray("polygon_hitbox")]
 script = ExtResource("1_tkhfh")
+polygon_hitbox = NodePath("")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-48, -32, 64, -32, 109, 0, 64, 32, -48, 32)
-
-[node name="PolygonHitbox" type="CollisionPolygon2D" parent="."]

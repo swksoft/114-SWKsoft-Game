@@ -398,7 +398,7 @@ _data = {
 "startup": SubResource("Animation_ya2ek")
 }
 
-[node name="CustomCursor" type="Node2D"]
+[node name="CustomCursor" type="Node2D" groups=["cursor"]]
 z_index = 4096
 script = ExtResource("1_g5j7x")
 hw_cursor = ExtResource("2_kwnop")
