@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://blqy6simb1yg6"]
+[gd_scene load_steps=8 format=3 uid="uid://blqy6simb1yg6"]
 
 [ext_resource type="Script" path="res://scripts/npcs/npc.gd" id="1_dpby6"]
-[ext_resource type="Texture2D" uid="uid://25dc3gukicm6" path="res://assets/sprites/characters/allchars.png" id="1_o8ss1"]
 [ext_resource type="PackedScene" uid="uid://lmddb58fek1g" path="res://scenes/npcs/globe.tscn" id="2_3x7ja"]
 [ext_resource type="PackedScene" uid="uid://bngej0qlviycp" path="res://scenes/npcs/name_label.tscn" id="4_er74h"]
 
@@ -67,6 +66,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_voe73"]
 resource_name = "come_in"
@@ -80,7 +91,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(-320, 0), Vector2(0, 0)]
+"values": [Vector2(-500, 0), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -132,19 +143,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.5, 1.5),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(320, 0)]
+"values": [Vector2(0, 0), Vector2(500, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath(".:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 2),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -182,6 +193,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c4owc"]
 _data = {
@@ -192,7 +215,6 @@ _data = {
 
 [node name="NPC" type="Sprite2D"]
 self_modulate = Color(1, 1, 1, 0)
-texture = ExtResource("1_o8ss1")
 script = ExtResource("1_dpby6")
 globe_scene = ExtResource("2_3x7ja")
 
@@ -200,10 +222,8 @@ globe_scene = ExtResource("2_3x7ja")
 visible = false
 custom_minimum_size = Vector2(207.155, 79.775)
 offset_left = 48.0
-offset_right = 112.0
-offset_bottom = 54.0
-size_flags_horizontal = 0
-size_flags_vertical = 4
+offset_right = 255.155
+offset_bottom = 79.775
 theme_override_constants/v_separation = 50
 
 [node name="NameLabel" parent="GridContainer" instance=ExtResource("4_er74h")]
@@ -226,5 +246,5 @@ libraries = {
 
 [connection signal="sex_npc" from="GridContainer/NameLabel" to="." method="_on_name_label_sex_npc"]
 [connection signal="timeout" from="TimeLeft" to="." method="_on_time_left_timeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished2"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
