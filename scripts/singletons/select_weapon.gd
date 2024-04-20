@@ -6,6 +6,10 @@ var hammer : Resource = preload("res://assets/sprites/icon/hammer2.png")
 @onready var texture_hammer = $TextureHammer
 @onready var anim = $AnimationPlayer
 
+func _ready():
+	change_weapon()
+	
+
 func change_weapon():
 	if CustomCursor.current == 0:
 		texture_hammer.texture = default
@@ -24,5 +28,5 @@ func _on_mouse_exited():
 
 func _on_input_event(viewport, event, shape_idx):
 	print("pij")
-	if (event is InputEventMouseButton && event.just_pressed):
+	if (event is InputEventMouseButton && event.pressed):
 		change_weapon()

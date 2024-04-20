@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuuoenj8c0xrj"]
+
+[ext_resource type="Script" path="res://scripts/blade/SpawnerBlade.gd" id="1_2gk0e"]
+[ext_resource type="PackedScene" uid="uid://cgghbhpbu6phr" path="res://bladee.tscn" id="2_sbiqp"]
+
+[node name="SpawnerBlade" type="Node2D"]
+script = ExtResource("1_2gk0e")
+blade_scene = ExtResource("2_sbiqp")

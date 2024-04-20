@@ -1,28 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://di6b47hs7k433"]
+[gd_scene load_steps=8 format=3 uid="uid://di6b47hs7k433"]
 
 [ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_wl18g"]
-[ext_resource type="Script" path="res://scripts/blade/SpawnerBlade.gd" id="2_vdclb"]
-[ext_resource type="PackedScene" uid="uid://cgghbhpbu6phr" path="res://main.tscn" id="3_hnuj3"]
 [ext_resource type="PackedScene" uid="uid://1h4nlm6vs37i" path="res://scenes/spawner_npc.tscn" id="3_k7gpg"]
 [ext_resource type="PackedScene" uid="uid://dfuj4bwpmbe3c" path="res://scenes/hud2.tscn" id="5_wid4p"]
+[ext_resource type="PackedScene" uid="uid://cuuoenj8c0xrj" path="res://scenes/blade/spawner_blade.tscn" id="5_xa72v"]
 [ext_resource type="Texture2D" uid="uid://d4mua351lvep" path="res://assets/sprites/bg/background_exterior.png" id="7_blmwk"]
 [ext_resource type="Texture2D" uid="uid://4tw52ylh60ju" path="res://assets/sprites/bg/background.png" id="8_ngsbw"]
 [ext_resource type="Texture2D" uid="uid://bykxyt26w3bbe" path="res://assets/sprites/bg/anvil.png" id="9_dqi4x"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_wl18g")
-
-[node name="SpawnPositionBlade" type="Marker2D" parent="."]
-position = Vector2(256, 256)
-
-[node name="SpawnerBlade" type="Node2D" parent="."]
-script = ExtResource("2_vdclb")
-blade_scene = ExtResource("3_hnuj3")
-
-[node name="SpawnerNPC" parent="." instance=ExtResource("3_k7gpg")]
-
-[node name="Characters" type="Node2D" parent="."]
-position = Vector2(256, 96)
 
 [node name="Exterior" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -45,5 +32,15 @@ offset_top = 240.0
 offset_right = 422.0
 offset_bottom = 356.0
 texture = ExtResource("9_dqi4x")
+
+[node name="SpawnPositionBlade" type="Marker2D" parent="."]
+position = Vector2(256, 256)
+
+[node name="SpawnerBlade" parent="." instance=ExtResource("5_xa72v")]
+
+[node name="SpawnerNPC" parent="." instance=ExtResource("3_k7gpg")]
+
+[node name="Characters" type="Node2D" parent="."]
+position = Vector2(256, 96)
 
 [node name="HUD2" parent="." instance=ExtResource("5_wid4p")]
