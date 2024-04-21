@@ -12,6 +12,8 @@ var npc_blade #: PackedVector2Array
 var polygon1 = [Vector2(0, 0), Vector2(1, 1), Vector2(2, 0), Vector2(3, 1)]
 var polygon2 = [Vector2(0, 0), Vector2(1, 0), Vector2(2, 0)]
 
+signal npc_left
+
 func evaluate_swords(pol1, pol2):
 	print_debug("\n ==== EVALUACION DE ESPADAS =====")
 	print_debug(pol1, pol2)

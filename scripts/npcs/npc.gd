@@ -96,6 +96,8 @@ func _process(_delta):
 
 func _on_time_left_timeout():
 	go_out()
+	GLOBAL.blades_left -= 1
+	GLOBAL.npc_left.emit()
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "come_in":
