@@ -1,13 +1,12 @@
 extends CanvasLayer
 
 # TODO: SE TIENE QUE SELECCIONAR Y DESELECCIONAR EL PUNTERO (martillo o cursor)
-# TODO: SI SE TIENE EL MARTILLO EN MANO ENTONCES NO SE PUEDE ACCEDER A LOS BOTONES DEL MENU
+# TODO: SI SE TIENE EL MARTILLO EN MANO ENTONCES NO SE PUEDE ACCEDER A LOS BOTONES DEL MENU (g)
 
 signal done_blade
 signal redo_blade
 signal gain_blade
-
-# TODO: NO DEJA PRESIONAR BOTONES AL INICIAR
+signal gain_points
 
 var time: float = 0.0
 
@@ -45,3 +44,29 @@ func _on_redo_button_pressed():
 
 func _on_done_button_pressed():
 	emit_signal("done_blade")
+
+func _on_done_blade():
+	GLOBAL.actual_points = int(GLOBAL.compare_polygons(GLOBAL.player_blade, GLOBAL.npc_blade))
+	print_debug("DISTANCIA TOTAL: ", GLOBAL.actual_points)
+	if GLOBAL.actual_points >= 20:
+		lose_blade()
+		GLOBAL.points += 0 * GLOBAL.POINTS_DEFAULT
+		print("super mal")
+	elif GLOBAL.actual_points < 20 and GLOBAL.actual_points >= 15:
+		GLOBAL.points += 0.25 * GLOBAL.POINTS_DEFAULT
+		print("mal")
+	elif GLOBAL.actual_points < 15 and GLOBAL.actual_points >= 10:
+		print("mas o menos")
+		GLOBAL.points += 0.5 * GLOBAL.POINTS_DEFAULT
+	elif GLOBAL.actual_points < 10 and GLOBAL.actual_points >= 5:
+		GLOBAL.points += 0.75 * GLOBAL.POINTS_DEFAULT
+		print("bien")
+	elif GLOBAL.actual_points < 5:
+		print("perfecto")
+		GLOBAL.points += 2 * GLOBAL.POINTS_DEFAULT
+		
+	emit_signal("gain_points")
+
+func _on_gain_points():
+	print("points")
+	money_label.text = "$" + str(GLOBAL.points)

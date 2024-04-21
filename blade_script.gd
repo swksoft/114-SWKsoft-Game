@@ -50,7 +50,7 @@ func _ready() -> void:
 func reset_hitbox():
 	polygon_hbox.set_deferred("polygon", polygon_2d.polygon)
 	polygon_hbox.set_deferred("position", polygon_2d.position)
-	print(polygon_2d.polygon)
+	GLOBAL.player_blade = polygon_2d.polygon
 	#polygon_hbox.polygon = polygon_2d.polygon
 	#polygon_hbox.position = polygon_2d.position
 

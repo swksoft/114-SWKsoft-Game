@@ -55,7 +55,12 @@ func create_blade():
 	blade.scale /= 3
 	add_child(blade)
 	
-	blade.randomize_sword(poly_patterns.pick_random())
+	var random_coordinates = poly_patterns.pick_random()
+	
+	blade.randomize_sword(random_coordinates)
+	
+	GLOBAL.npc_blade = random_coordinates
+	print_debug(GLOBAL.npc_blade)
 	
 	#blade_data_npc = blade.polygon_2d.polygon
 	
@@ -63,3 +68,4 @@ func create_blade():
 	
 	#for i in total_polygons:
 	#	blade.polygon_2d.polygon[i] += Vector2(randi_range(-5,5), randi_range(-5,5))
+

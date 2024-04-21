@@ -1,7 +1,5 @@
 extends Area2D
 
-# TODO: tienen que aparecer grietas como si se rompiera
-
 @export var minimum_force_break = 15
 @export var crack_scene : PackedScene
 
@@ -11,7 +9,7 @@ extends Area2D
 @onready var anim = $AnimationPlayer
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-# TODO: ARREGLAR COLISIONES
+# TODO: LAS COLISIONES ANDAN RARAS (g)
 
 func _ready():
 	animated_sprite_2d.frame = 0

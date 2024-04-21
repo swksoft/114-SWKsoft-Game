@@ -52,6 +52,7 @@ var sprites_man = [CHAR_VINO_12, CHAR_SPARTAN_38, CHAR_SPACESEX_14, CHAR_SENIGAT
 var sprites_woman = [CHAR_MINERVA_11, CHAR_KIKI_34, CHAR_DESTRUCTORA_25, CHAR_ANIMA_10] + sprites_monster
 
 func _ready():
+	
 	var globe = globe_scene.instantiate()
 	var max_time = time_left.wait_time
 	# TODO: Determinar dificultad
@@ -62,21 +63,28 @@ func _ready():
 	
 	globe.global_position = position - Vector2(130,35)
 	globe.create_blade()
-	print("DATA ENEMIGO: ", globe.blade_data_npc)
 	
 	add_child(globe)
 
 func check_sword():
-	# TODO: Do math and show emotion according to the quality (very happy - sad)
+	# TODO: Do math (efficiency and time) and show emotion according to the quality (very happy - sad)
 	pass
 
 func go_out():
-	GLOBAL.points -= 100 # TODO: Bajar una cantidad considerable de puntos, 100 es ejemplo
+	check_sword()
+	
+	#GLOBAL.points -= 100 # TODO: Bajar una cantidad considerable de puntos, 100 es ejemplo
 	
 	var globe = globe_scene.instantiate()
 	
 	globe.global_position = position - Vector2(130,35)
-	globe.icon_name = "angry"
+	
+	
+	if GLOBAL.actual_points >= 20: globe.icon_name = "angry"
+	elif GLOBAL.actual_points < 20 and GLOBAL.actual_points >= 15: globe.icon_name = "sad"
+	elif GLOBAL.actual_points < 15 and GLOBAL.actual_points >= 10: globe.icon_name = "neutral"
+	elif GLOBAL.actual_points < 10 and GLOBAL.actual_points >= 5: globe.icon_name = "happy"
+	elif GLOBAL.actual_points < 5: globe.icon_name = "wee"
 	
 	anim.play("come_out")
 	

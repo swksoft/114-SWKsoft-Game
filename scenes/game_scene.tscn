@@ -61,5 +61,6 @@ layer = 0
 [node name="SpawnerBlade" parent="." instance=ExtResource("5_xa72v")]
 
 [connection signal="done_blade" from="HUD2" to="SpawnerNPC" method="_on_hud_2_done_blade"]
+[connection signal="done_blade" from="HUD2" to="HUD2" method="_on_done_blade"]
 [connection signal="done_blade" from="HUD2" to="SpawnerBlade" method="_on_hud_2_done_blade"]
 [connection signal="redo_blade" from="HUD2" to="SpawnerBlade" method="_on_hud_2_redo_blade"]

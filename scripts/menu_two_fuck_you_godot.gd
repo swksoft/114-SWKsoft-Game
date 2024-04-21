@@ -21,6 +21,6 @@ func _on_closed_area_area_entered(area):
 	
 func _on_open():
 	#get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
-	get_tree().change_scene_to_packed(game_start_scene)
-	#get_tree().call_deferred("change_scene_to_file", "res://scenes/game_scene.tscn")
+	#get_tree().change_scene_to_packed(game_start_scene)
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/game_scene.tscn")
 	

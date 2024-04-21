@@ -40,6 +40,6 @@ func _ready():
 	#new_pol.polygon = PackedVector2Array([Vector2(0, 0), Vector2(2, 0), Vector2(2, 2), Vector2(0, 2)]) # COORDENADAS POL nuevo
 	#new_pol.scale = Vector2(15,15)
 	add_child(new_pol)
-	print(new_pol.polygon)
+	#print(new_pol.polygon)
 	
-	print(array_pol1)
+	#print(array_pol1)

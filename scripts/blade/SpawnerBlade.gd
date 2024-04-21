@@ -16,7 +16,6 @@ func spawn_blade():
 	var blade = blade_scene.instantiate()
 	blade.global_position = spawn_position.position
 	add_child(blade)
-	print_debug(blade.polygon_2d.polygon)
 
 func _on_hud_2_redo_blade():
 	animation.play("redo")

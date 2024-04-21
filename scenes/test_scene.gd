@@ -3,15 +3,20 @@ extends Node2D
 @onready var his_blade = $HisBlade
 @onready var your_blade = $YourBlade
 
+var polygon1 : Array = [Vector2(-48, -32), Vector2(32, -89.33333), Vector2(64, -32), Vector2(109, 0), Vector2(64, 32), Vector2(32, -25.33334), Vector2(-48, 32)]
+var polygon2 : Array = [Vector2(-48, -32), Vector2(32, -32), Vector2(64, 62.66667), Vector2(109, 0), Vector2(64, 126.6667), Vector2(32, 32), Vector2(-48, 32)]
+
 func _ready():
-	#his_blade.polygon_2d.polygon[3] += Vector2(0,60)
-	randomize()
+	$HisBlade/Polygon2D.polygon = polygon1
+	$YourBlade/Polygon2D.polygon = polygon2
 	
-	randomize_blade()
+	
+	#his_blade.polygon_2d.polygon[3] += Vector2(0,60)
+	
 	his_blade.reset_hitbox()
 	your_blade.reset_hitbox()
 	
-	print(evaluate((final_results(point_distance()))))
+	#print(evaluate((final_results(point_distance()))))
 
 func randomize_blade():
 	var total_polygons = his_blade.polygon_2d.polygon.size()

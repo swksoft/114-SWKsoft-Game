@@ -93,5 +93,6 @@ theme_override_constants/outline_size = 4
 text = "$1526"
 
 [connection signal="gain_blade" from="." to="." method="_on_gain_blade"]
+[connection signal="gain_points" from="." to="." method="_on_gain_points"]
 [connection signal="pressed" from="PanelHUD/RedoButton" to="." method="_on_redo_button_pressed"]
 [connection signal="pressed" from="PanelHUD/DoneButton" to="." method="_on_done_button_pressed"]
