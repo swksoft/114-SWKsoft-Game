@@ -11,6 +11,8 @@ extends Area2D
 @onready var anim = $AnimationPlayer
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+# TODO: ARREGLAR COLISIONES
+
 func _ready():
 	animated_sprite_2d.frame = 0
 
@@ -28,13 +30,13 @@ func check_health():
 		anim.play("appear")
 
 func crack(force):
-	var crack = crack_scene.instantiate()
-	crack.global_position = get_global_mouse_position()
+	var crack_mirror = crack_scene.instantiate()
+	crack_mirror.global_position = get_global_mouse_position()
 	
 	if force >= minimum_force_break:
 		mirror_health -= force
 		print("salud espejo: ", mirror_health)
-		add_child(crack)
+		add_child(crack_mirror)
 		check_health()
 		
 

@@ -3,6 +3,33 @@
 [ext_resource type="Script" path="res://scripts/blade/SpawnerBlade.gd" id="1_2gk0e"]
 [ext_resource type="PackedScene" uid="uid://cgghbhpbu6phr" path="res://bladee.tscn" id="2_sbiqp"]
 
+[sub_resource type="Animation" id="Animation_m4v36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+
 [sub_resource type="Animation" id="Animation_higq1"]
 resource_name = "appear"
 length = 0.5
@@ -31,32 +58,9 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_m4v36"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.5708]
-}
+[sub_resource type="Animation" id="Animation_0wdr4"]
+resource_name = "done"
+length = 0.5
 
 [sub_resource type="Animation" id="Animation_sdf23"]
 resource_name = "redo"
@@ -85,10 +89,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, -1.5708]
 }
-
-[sub_resource type="Animation" id="Animation_0wdr4"]
-resource_name = "done"
-length = 0.5
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_48y6y"]
 _data = {

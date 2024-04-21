@@ -46,10 +46,10 @@ func _process(delta):
 		change_weapon()
 	
 	match current:
-		CURSOR.HAMMER:
+		CURSOR.DEFAULT:
 			Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
 			software_cursor.visible = false
-		CURSOR.DEFAULT:
+		CURSOR.HAMMER:
 			Input.set_custom_mouse_cursor(hw_cursor, Input.CURSOR_ARROW)
 			software_cursor.visible = true
 			software_cursor.global_position = software_cursor.get_global_mouse_position()# - Vector2(15,20)
@@ -85,5 +85,15 @@ func _on_pound_area_area_entered(area):
 	print_debug("hit something: ", area)
 	if area.has_method("deform"):
 		area.deform(pound())
+		return
+	
 	elif area.has_method("crack"):
 		area.crack(pound())
+		return
+	
+	elif area.is_in_group("a"):
+		area.caca()
+		return
+	
+	else:
+		print("undefined")

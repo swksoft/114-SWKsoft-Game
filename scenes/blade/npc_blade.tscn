@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm6pnertn2tkx"]
+
+[ext_resource type="Script" path="res://scripts/blade/npc_blade.gd" id="1_f4ewe"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nxyin"]
+noise_type = 0
+seed = 5
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_al8ca"]
+normalize = false
+noise = SubResource("FastNoiseLite_nxyin")
+
+[node name="NPCblade" type="Polygon2D"]
+color = Color(0.772318, 0.733166, 1, 1)
+texture = SubResource("NoiseTexture2D_al8ca")
+texture_offset = Vector2(105.15, 189.315)
+texture_scale = Vector2(0.5, 0.5)
+script = ExtResource("1_f4ewe")

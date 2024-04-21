@@ -1,11 +1,4 @@
-extends Sprite2D
-
-signal finish
-
-@export var icon_name: String
-@export var blade_scene : PackedScene
-
-var blade_data_npc
+extends Polygon2D
 
 var poly_patterns : Array = [[Vector2(-48,-32), Vector2(32, -89.33333), Vector2(64, -32), Vector2(109, 0), Vector2(64, 32), Vector2(32, -25.33334), Vector2(-48, 32)],
 	[Vector2(-48, -32), Vector2(32, -32), Vector2(64, 62.66667), Vector2(109, 0), Vector2(64, 126.6667), Vector2(32, 32), Vector2(-48, 32)],
@@ -23,43 +16,9 @@ var poly_patterns : Array = [[Vector2(-48,-32), Vector2(32, -89.33333), Vector2(
 	[Vector2(-48, -73.33511), Vector2(32, -4), Vector2(64, -32), Vector2(109, 0), Vector2(64, 32), Vector2(32, 60), Vector2(-48, -9.335106)],
 	[Vector2(-48, -73.33511), Vector2(32, -50.66667), Vector2(64, -32), Vector2(109, 0), Vector2(64, 32), Vector2(32, 13.33333), Vector2(-48, -9.335106)]]
 
-@onready var icon = $Icon
-
-var neutral = preload("res://assets/sprites/icon/icon_neutral.png")
-var anger = preload("res://assets/sprites/icon/ico_anger.png")
-var happy = preload("res://assets/sprites/icon/ico_happy.png")
-var sad = preload("res://assets/sprites/icon/ico_sad.png")
-var sword = preload("res://assets/sprites/icon/ico_sword.png")
-var wee = preload("res://assets/sprites/icon/ico_wee.png")
-
 func _ready():
-	randomize()
-	
-	match icon_name:
-		"neutral":
-			icon.texture = neutral
-		"angry":
-			icon.texture = anger
-		"happy":
-			icon.texture = happy
-		"sad":
-			icon.texture = sad
-		"wee":
-			icon.texture = wee
-		"sword":
-			icon.texture = sword
+	pass
+	#polygon = poly_patterns.pick_random()
 
-func create_blade():
-	var blade = blade_scene.instantiate()
-	
-	blade.scale /= 3
-	add_child(blade)
-	
-	blade.randomize_sword(poly_patterns.pick_random())
-	
-	#blade_data_npc = blade.polygon_2d.polygon
-	
-	#var total_polygons = blade.polygon_2d.polygon.size()
-	
-	#for i in total_polygons:
-	#	blade.polygon_2d.polygon[i] += Vector2(randi_range(-5,5), randi_range(-5,5))
+func randomize_sword(coordinates):
+	polygon = coordinates

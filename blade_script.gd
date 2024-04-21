@@ -10,6 +10,7 @@ var ready_blade : bool
 @onready var polygon_2d = $Polygon2D
 
 func _ready() -> void:
+	queue_redraw()
 	randomize()
 	
 	points_amount_in_each_side = polygon_2d.polygon[1].x / points_between
@@ -49,6 +50,7 @@ func _ready() -> void:
 func reset_hitbox():
 	polygon_hbox.set_deferred("polygon", polygon_2d.polygon)
 	polygon_hbox.set_deferred("position", polygon_2d.position)
+	print(polygon_2d.polygon)
 	#polygon_hbox.polygon = polygon_2d.polygon
 	#polygon_hbox.position = polygon_2d.position
 

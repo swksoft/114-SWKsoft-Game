@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://ccy1sq6rcd2nf" path="res://assets/sprites/icon/textglobe.png" id="1_r7fpc"]
 [ext_resource type="Script" path="res://scripts/npcs/globe.gd" id="1_sfmxy"]
-[ext_resource type="PackedScene" uid="uid://cgghbhpbu6phr" path="res://bladee.tscn" id="3_enx0m"]
+[ext_resource type="PackedScene" uid="uid://cm6pnertn2tkx" path="res://scenes/blade/npc_blade.tscn" id="3_fxr0k"]
 
 [node name="Globe" type="Sprite2D"]
 self_modulate = Color(1, 1, 1, 0.72549)
 texture = ExtResource("1_r7fpc")
 script = ExtResource("1_sfmxy")
-blade_scene = ExtResource("3_enx0m")
+blade_scene = ExtResource("3_fxr0k")
 metadata/_edit_vertical_guides_ = [64.0, 448.0]
 metadata/_edit_horizontal_guides_ = [16.0, 176.0, 208.0, 352.0]
 

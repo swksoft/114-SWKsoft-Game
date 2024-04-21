@@ -7,6 +7,8 @@ signal done_blade
 signal redo_blade
 signal gain_blade
 
+# TODO: NO DEJA PRESIONAR BOTONES AL INICIAR
+
 var time: float = 0.0
 
 ''' MONEY '''

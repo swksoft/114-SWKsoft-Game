@@ -58,15 +58,17 @@ _data = {
 }
 
 [node name="SelectWeapon" type="Area2D"]
+z_index = 2
 collision_mask = 0
 script = ExtResource("1_s5pb1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
 position = Vector2(256, 368)
 shape = SubResource("RectangleShape2D_dhs61")
 
 [node name="TextureHammer" type="Sprite2D" parent="."]
-visible = false
+z_index = 2
 position = Vector2(256, 344)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

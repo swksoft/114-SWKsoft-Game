@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk6pwdsbg8hlf"]
+
+[ext_resource type="Script" path="res://scripts/menu_two_fuck_you_godot.gd" id="1_mt0jg"]
+[ext_resource type="Texture2D" uid="uid://ba7t1wp8ivhrq" path="res://assets/sprites/bg/closed.png" id="2_8o3ki"]
+[ext_resource type="Texture2D" uid="uid://4tw52ylh60ju" path="res://assets/sprites/bg/background.png" id="3_2sf58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o20h3"]
+size = Vector2(397, 165)
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_mt0jg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClosedArea" type="Area2D" parent="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ClosedArea"]
+position = Vector2(261, 201)
+texture = ExtResource("2_8o3ki")
+
+[node name="Col" type="CollisionShape2D" parent="CanvasLayer/ClosedArea"]
+position = Vector2(257.5, 94.5)
+shape = SubResource("RectangleShape2D_o20h3")
+
+[node name="Fondo" type="TextureRect" parent="CanvasLayer"]
+offset_right = 512.0
+offset_bottom = 384.0
+texture = ExtResource("3_2sf58")
+metadata/_edit_lock_ = true
+
+[connection signal="open" from="." to="." method="_on_open"]
+[connection signal="area_entered" from="CanvasLayer/ClosedArea" to="." method="_on_closed_area_area_entered"]

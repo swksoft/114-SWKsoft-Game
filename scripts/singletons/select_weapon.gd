@@ -11,10 +11,10 @@ func _ready():
 
 func change_weapon():
 	if CustomCursor.current == 0:
-		texture_hammer.texture = default
+		texture_hammer.texture = hammer
 		CustomCursor.current = 1
 	elif CustomCursor.current == 1:
-		texture_hammer.texture = hammer
+		texture_hammer.texture = default
 		CustomCursor.current = 0
 
 func _on_mouse_entered():
@@ -25,7 +25,6 @@ func _on_mouse_exited():
 	anim.play("go_down")
 	#texture_hammer.visible = false
 
-func _on_input_event(viewport, event, shape_idx):
+func _on_input_event(_viewport, event, _shape_idx):
 	if (event is InputEventMouseButton && event.pressed):
-		print("pij")
 		change_weapon()

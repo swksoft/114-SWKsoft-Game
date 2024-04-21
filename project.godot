@@ -34,6 +34,12 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "red"
+}
+
 [gui]
 
 theme/custom_font="res://fonts/PixeloidSans.ttf"

@@ -71,6 +71,7 @@ script = ExtResource("1_4fvag")
 crack_scene = ExtResource("2_pe1pu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -138,7 +139,7 @@ position = Vector2(256, 192)
 shape = SubResource("RectangleShape2D_m84xu")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

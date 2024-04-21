@@ -62,6 +62,7 @@ func _ready():
 	
 	globe.global_position = position - Vector2(130,35)
 	globe.create_blade()
+	print("DATA ENEMIGO: ", globe.blade_data_npc)
 	
 	add_child(globe)
 

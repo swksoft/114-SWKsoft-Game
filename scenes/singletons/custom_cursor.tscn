@@ -399,7 +399,7 @@ _data = {
 }
 
 [node name="CustomCursor" type="Node2D" groups=["cursor"]]
-z_index = 4096
+z_index = 1
 script = ExtResource("1_g5j7x")
 hw_cursor = ExtResource("2_kwnop")
 sf_cursor = ExtResource("3_dronh")
@@ -412,7 +412,7 @@ skew = 0.811578
 texture = ExtResource("3_dronh")
 offset = Vector2(-15, -15)
 
-[node name="PoundArea" type="Area2D" parent="."]
+[node name="PoundArea" type="Area2D" parent="." groups=["a"]]
 
 [node name="Collision" type="CollisionShape2D" parent="PoundArea"]
 shape = SubResource("CircleShape2D_1ya0y")

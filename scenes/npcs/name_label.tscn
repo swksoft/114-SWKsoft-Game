@@ -5,6 +5,9 @@
 [node name="NameLabel" type="Label"]
 offset_right = 256.0
 offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.996078, 0.270588, 0.270588, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 12
 text = "Sinn N. Ombre"
 horizontal_alignment = 1
@@ -16,6 +19,9 @@ layout_mode = 0
 offset_top = 32.0
 offset_right = 128.0
 offset_bottom = 55.0
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
 text = "Clase"
 vertical_alignment = 1
