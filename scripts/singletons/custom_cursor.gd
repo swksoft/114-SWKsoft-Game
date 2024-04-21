@@ -1,6 +1,5 @@
 class_name Cursor extends Node2D
 
-# TODO: (G) no quiero que el martillo salga ahi nomas empieza la escena :sob:
 # TODO: (G) que al mantener presionado click no se pueda ejecutar el martillazo de nuevo
 
 @export var hw_cursor: Texture2D = null
