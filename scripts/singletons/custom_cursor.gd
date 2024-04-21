@@ -42,8 +42,9 @@ func get_cursor_position():
 	return pound_area.global_position
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept") and OS.is_debug_build():
-		change_weapon()
+	pass
+	#if Input.is_action_just_pressed("ui_accept") and OS.is_debug_build():
+#		change_weapon()
 	
 	match current:
 		CURSOR.DEFAULT:

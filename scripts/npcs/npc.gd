@@ -52,6 +52,7 @@ var sprites_man = [CHAR_VINO_12, CHAR_SPARTAN_38, CHAR_SPACESEX_14, CHAR_SENIGAT
 var sprites_woman = [CHAR_MINERVA_11, CHAR_KIKI_34, CHAR_DESTRUCTORA_25, CHAR_ANIMA_10] + sprites_monster
 
 func _ready():
+	randomize()
 	
 	var globe = globe_scene.instantiate()
 	var max_time = time_left.wait_time
