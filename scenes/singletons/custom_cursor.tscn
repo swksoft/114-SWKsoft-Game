@@ -438,6 +438,7 @@ libraries = {
 wait_time = 0.75
 
 [node name="SelectWeapon" parent="." instance=ExtResource("4_yvhgy")]
+position = Vector2(112, 0)
 
 [connection signal="area_entered" from="PoundArea" to="." method="_on_pound_area_area_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_timer_timeout"]
