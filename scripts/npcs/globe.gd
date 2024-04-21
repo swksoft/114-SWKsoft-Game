@@ -57,7 +57,7 @@ func create_blade():
 	blade.randomize_sword(random_coordinates)
 	
 	GLOBAL.npc_blade = random_coordinates
-	print_debug(GLOBAL.npc_blade)
+	#print_debug(GLOBAL.npc_blade)
 	
 	#blade_data_npc = blade.polygon_2d.polygon
 	

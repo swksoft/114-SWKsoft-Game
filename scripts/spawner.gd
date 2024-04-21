@@ -28,4 +28,4 @@ func _process(_delta):
 		spawn()
 
 func _on_hud_2_done_blade():
-	if npc != null: npc.go_out()
+	npc.go_out()

@@ -33,7 +33,7 @@ func crack(force):
 	
 	if force >= minimum_force_break:
 		mirror_health -= force
-		print("salud espejo: ", mirror_health)
+		#print("salud espejo: ", mirror_health)
 		add_child(crack_mirror)
 		check_health()
 		

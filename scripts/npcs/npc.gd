@@ -80,13 +80,16 @@ func go_out():
 	
 	globe.global_position = position - Vector2(130,35)
 	
-	if GLOBAL.actual_points >= 20 or time_left.time_left <= 0:
-		globe.icon_name = "angry"
-		
-	elif GLOBAL.actual_points < 20 and GLOBAL.actual_points >= 15: globe.icon_name = "sad"
-	elif GLOBAL.actual_points < 15 and GLOBAL.actual_points >= 10: globe.icon_name = "neutral"
-	elif GLOBAL.actual_points < 10 and GLOBAL.actual_points >= 5: globe.icon_name = "happy"
-	elif GLOBAL.actual_points < 5: globe.icon_name = "wee"
+	if time_left.time_left <= 0:
+		anim.play("come_out")
+		add_child(globe)
+		return
+	
+	if GLOBAL.actual_points >= 16: globe.icon_name = "angry"
+	elif GLOBAL.actual_points < 16 and GLOBAL.actual_points >= 10: globe.icon_name = "sad"
+	elif GLOBAL.actual_points < 10 and GLOBAL.actual_points >= 5: globe.icon_name = "neutral"
+	elif GLOBAL.actual_points < 5 and GLOBAL.actual_points >= 3: globe.icon_name = "happy"
+	elif GLOBAL.actual_points < 3: globe.icon_name = "wee"
 	
 	anim.play("come_out")
 	
@@ -96,9 +99,9 @@ func _process(_delta):
 	time_bar.value = time_left.time_left
 
 func _on_time_left_timeout():
-	go_out()
 	GLOBAL.blades_left -= 1
 	GLOBAL.npc_left.emit()
+	go_out()
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "come_in":

@@ -1,24 +1,18 @@
 extends Node
 
+signal npc_left
+
 const POINTS_DEFAULT = 500
 
 var actual_points: int = 0
 var points: int = 0
-var blades_left: int = 3
+var blades_left: int = 8
 
 var player_blade #: PackedVector2Array
 var npc_blade #: PackedVector2Array
 
-var polygon1 = [Vector2(0, 0), Vector2(1, 1), Vector2(2, 0), Vector2(3, 1)]
-var polygon2 = [Vector2(0, 0), Vector2(1, 0), Vector2(2, 0)]
-
-signal npc_left
-
-func evaluate_swords(pol1, pol2):
-	print_debug("\n ==== EVALUACION DE ESPADAS =====")
-	print_debug(pol1, pol2)
-	var distance_total = compare_polygons(pol1, pol2)
-	print("distance_total: ", distance_total)
+func _process(delta):
+	print("PUNTOS ACTUALES = ", actual_points)
 
 func normalize_polygon(polygon: Array, num_vertices: int) -> Array:
 	var normalized_polygon = []
