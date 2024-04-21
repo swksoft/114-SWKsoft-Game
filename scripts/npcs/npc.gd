@@ -79,8 +79,9 @@ func go_out():
 	
 	globe.global_position = position - Vector2(130,35)
 	
-	
-	if GLOBAL.actual_points >= 20: globe.icon_name = "angry"
+	if GLOBAL.actual_points >= 20 or time_left.time_left <= 0:
+		globe.icon_name = "angry"
+		
 	elif GLOBAL.actual_points < 20 and GLOBAL.actual_points >= 15: globe.icon_name = "sad"
 	elif GLOBAL.actual_points < 15 and GLOBAL.actual_points >= 10: globe.icon_name = "neutral"
 	elif GLOBAL.actual_points < 10 and GLOBAL.actual_points >= 5: globe.icon_name = "happy"

@@ -1,9 +1,5 @@
 extends Node2D
 
-# 1) Comprobar que no haya nadie en pantalla
-# 2) Spawnear cliente
-# 3) Repetir
-
 @export var can_play: bool = true
 @export var npc_scene: PackedScene 
 

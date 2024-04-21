@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-# TODO: SE TIENE QUE SELECCIONAR Y DESELECCIONAR EL PUNTERO (martillo o cursor)
 # TODO: SI SE TIENE EL MARTILLO EN MANO ENTONCES NO SE PUEDE ACCEDER A LOS BOTONES DEL MENU (g)
 
 signal done_blade
@@ -24,8 +23,8 @@ func _ready():
 	#time_label.text = time
 
 func _process(delta):
-	if CustomCursor.current == 0: get_tree().call_group("button", "set_disabled", false)
-	elif CustomCursor.current == 1: get_tree().call_group("button", "set_disabled", true)
+	if CustomCursor.current == 0: get_tree().call_group("button", "set_disabled", true)
+	elif CustomCursor.current == 1: get_tree().call_group("button", "set_disabled", false)
 
 func lose_blade():
 	GLOBAL.blades_left -= 1
@@ -68,5 +67,6 @@ func _on_done_blade():
 	emit_signal("gain_points")
 
 func _on_gain_points():
+	blade_label.text = "x" + str(GLOBAL.blades_left)
 	print("points")
 	money_label.text = "$" + str(GLOBAL.points)
