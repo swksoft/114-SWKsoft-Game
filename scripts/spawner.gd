@@ -27,3 +27,7 @@ func _process(_delta):
 		
 	if check_nobody():
 		spawn()
+
+
+func _on_hud_2_done_blade():
+	pass # Replace with function body.

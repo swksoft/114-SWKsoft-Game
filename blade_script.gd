@@ -1,11 +1,11 @@
 extends Area2D
 
 @export var polygon_hitbox : CollisionPolygon2D
-@export var points_between: int = 64
+@export var points_between: int = 32
 
 var points_amount_in_each_side: int
 var polygon_hbox
-var ready_blade : bool = false
+var ready_blade : bool
 
 @onready var polygon_2d = $Polygon2D
 
@@ -39,7 +39,7 @@ func _ready() -> void:
 	
 	if !ready_blade:
 		polygon_2d.texture.noise = noise
-		polygon_2d.self_modulate = "d76221"
+		polygon_2d.self_modulate = "ee8243"
 	else:
 		pass
 	
@@ -67,6 +67,7 @@ func deform(force):
 			closest_point_index = i
 			
 	if closest_point_index == polygon_2d.polygon.size()/2:
+		return
 		if local_mouse_pos.y > polygon_2d.polygon[closest_point_index].y: polygon_2d.polygon[closest_point_index].y -= force
 		else: polygon_2d.polygon[closest_point_index].y += force
 	elif closest_point_index < polygon_2d.polygon.size()/2:

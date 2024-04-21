@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cgghbhpbu6phr" path="res://bladee.tscn" id="3_enx0m"]
 
 [node name="Globe" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.72549)
 texture = ExtResource("1_r7fpc")
 script = ExtResource("1_sfmxy")
 blade_scene = ExtResource("3_enx0m")

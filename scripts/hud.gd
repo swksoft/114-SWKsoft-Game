@@ -38,7 +38,7 @@ func _on_gain_blade():
 		GLOBAL.blades_left = 5 # NO SE PUEDE TENER MAS DE 5 ESPADAS
 
 func _on_redo_button_pressed():
-	lose_blade()
+	#lose_blade()
 	emit_signal("redo_blade")
 
 func _on_done_button_pressed():

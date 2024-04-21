@@ -32,11 +32,12 @@ func _ready():
 			icon.texture = sword
 
 func create_blade():
-	return
 	var blade = blade_scene.instantiate()
+	blade.ready_blade = true
+	blade.scale /= 2
+	add_child(blade)
 	
-	var total_polygons = blade.polygon_2d.polygon.size()
+	#var total_polygons = blade.polygon_2d.polygon.size()
 	
-	for i in total_polygons:
-		blade.polygon_2d.polygon[i] += Vector2(randi_range(-5,5), randi_range(-5,5))
-		blade.polygon_2d.polygon[i] += Vector2(randi_range(-5,5), randi_range(-5,5))
+	#for i in total_polygons:
+	#	blade.polygon_2d.polygon[i] += Vector2(randi_range(-5,5), randi_range(-5,5))

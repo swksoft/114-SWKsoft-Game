@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cit6yxsove1y0"]
+[gd_scene load_steps=6 format=3 uid="uid://cit6yxsove1y0"]
 
 [ext_resource type="PackedScene" uid="uid://cgghbhpbu6phr" path="res://bladee.tscn" id="1_q0epb"]
 [ext_resource type="Script" path="res://scenes/test_scene.gd" id="1_sr25r"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uljcm"]
+noise_type = 0
+frequency = 0.0007
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_or2sp"]
+resource_local_to_scene = true
+noise = SubResource("FastNoiseLite_uljcm")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pg7k4"]
+resource_local_to_scene = true
+noise = SubResource("FastNoiseLite_uljcm")
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_sr25r")
@@ -10,8 +22,14 @@ script = ExtResource("1_sr25r")
 position = Vector2(208, 96)
 scale = Vector2(0.5, 0.5)
 
+[node name="Polygon2D" parent="HisBlade" index="0"]
+texture = SubResource("NoiseTexture2D_or2sp")
+
 [node name="YourBlade" parent="." instance=ExtResource("1_q0epb")]
 position = Vector2(208, 208)
+
+[node name="Polygon2D" parent="YourBlade" index="0"]
+texture = SubResource("NoiseTexture2D_pg7k4")
 
 [editable path="HisBlade"]
 [editable path="YourBlade"]

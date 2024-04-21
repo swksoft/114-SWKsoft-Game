@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://di6b47hs7k433"]
+[gd_scene load_steps=9 format=3 uid="uid://di6b47hs7k433"]
 
 [ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_wl18g"]
+[ext_resource type="Texture2D" uid="uid://dbmdukeysigs8" path="res://assets/sprites/bg/clouds.png" id="2_q51hp"]
 [ext_resource type="PackedScene" uid="uid://1h4nlm6vs37i" path="res://scenes/spawner_npc.tscn" id="3_k7gpg"]
 [ext_resource type="PackedScene" uid="uid://dfuj4bwpmbe3c" path="res://scenes/hud2.tscn" id="5_wid4p"]
 [ext_resource type="PackedScene" uid="uid://cuuoenj8c0xrj" path="res://scenes/blade/spawner_blade.tscn" id="5_xa72v"]
@@ -22,10 +23,18 @@ grow_vertical = 2
 texture = ExtResource("7_blmwk")
 metadata/_edit_lock_ = true
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 512.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q51hp")
+
 [node name="SpawnPositionBlade" type="Marker2D" parent="."]
 position = Vector2(235, 300)
-
-[node name="SpawnerBlade" parent="." instance=ExtResource("5_xa72v")]
 
 [node name="SpawnerNPC" parent="." instance=ExtResource("3_k7gpg")]
 
@@ -48,4 +57,8 @@ metadata/_edit_lock_ = true
 
 [node name="HUD2" parent="." instance=ExtResource("5_wid4p")]
 
+[node name="SpawnerBlade" parent="." instance=ExtResource("5_xa72v")]
+
+[connection signal="done_blade" from="HUD2" to="SpawnerNPC" method="_on_hud_2_done_blade"]
+[connection signal="done_blade" from="HUD2" to="SpawnerBlade" method="_on_hud_2_done_blade"]
 [connection signal="redo_blade" from="HUD2" to="SpawnerBlade" method="_on_hud_2_redo_blade"]
